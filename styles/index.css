@@ -1,0 +1,53 @@
+.nav-container {
+	position: sticky;
+	top: 0;
+	border-bottom: 1px solid lightgray;
+	padding: 8px;
+	background: rgba(255, 255, 255, .7);
+	backdrop-filter: blur(4px);
+}
+
+.nav-title {
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: large;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+.tweets-list {
+	width: fit-content;
+	border-left: 1px solid lightgray;
+	border-right: 1px solid lightgray;
+	margin: 0 auto;
+}
+
+.tweet-container {
+	border-bottom: 1px solid lightgray;
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.tweet-body {
+	max-width: 540px;
+	margin: 0;
+}
+
+.tweet-info {
+	color: gray;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+}
+
+.tweet-user {
+	text-decoration: none;
+}
+
+.tweet-user:hover {
+	text-decoration: underline;
+}
