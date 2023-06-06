@@ -5,17 +5,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Homepage</title>
+	<link rel="stylesheet" href="./styles/common.css">
+	<link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
 	<div class="tweets-list">
+		<nav class="nav-container">
+			<a href="./" class="nav-title">Tweets</a>
+		</nav>
 		<?php 
 			require_once "config.php";
 
-			$sql = "SELECT * FROM tweets";
+			$sql = "SELECT tweets.tweet_id, tweets.ref_tweet, tweets.body, tweets.created_on, users.username FROM tweets INNER JOIN users ON users.user_id = tweets.author ORDER BY tweets.created_on DESC LIMIT 10";
 			if ($result = mysqli_query($link, $sql)) {
 				if (mysqli_num_rows($result) > 0) {
 					while ($row = mysqli_fetch_array($result)) {
-						echo $row["body"]."<br />";
+						echo "<div class=\"tweet-container\">";
+						echo "<p class=\"tweet-body\">".$row["body"]."</p>";
+						echo "<div class=\"tweet-info\">";
+						echo "by <a href=\"./search?user=".$row["username"]."\" class=\"tweet-user\">".$row["username"]."</a> at<span class=\"tweet-time\">".$row["created_on"]."</span>";
+						echo "</div></div>";
 					}
 				} else {
 					echo "No tweets found.";
