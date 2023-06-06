@@ -11,8 +11,8 @@
 		<?php 
 			require_once "config.php";
 
-			$read_sql = "SELECT * FROM tweets";
-			if ($result = mysqli_query($connection, $read_sql)) {
+			$sql = "SELECT * FROM tweets";
+			if ($result = mysqli_query($link, $sql)) {
 				if (mysqli_num_rows($result) > 0) {
 					while ($row = mysqli_fetch_array($result)) {
 						echo $row["body"]."<br />";
@@ -22,7 +22,7 @@
 				}
 				mysqli_free_result($result);
 			}
-			mysqli_close($connection);
+			mysqli_close($link);
 		?>
 	</div>
 </body>
