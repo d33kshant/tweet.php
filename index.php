@@ -7,6 +7,7 @@
 	<title>Homepage</title>
 	<link rel="stylesheet" href="./styles/common.css">
 	<link rel="stylesheet" href="./styles/index.css">
+	<script src="./js/index.js" defer></script>
 </head>
 <body>
 	<div class="tweets-list">
@@ -16,15 +17,15 @@
 		<?php 
 			require_once "config.php";
 
-			$sql = "SELECT tweets.tweet_id, tweets.ref_tweet, tweets.body, tweets.created_on, users.username FROM tweets INNER JOIN users ON users.user_id = tweets.author ORDER BY tweets.created_on DESC LIMIT 10";
+			$sql = "SELECT tweets.tweet_id, tweets.ref_tweet, tweets.body, tweets.created_on, users.username FROM tweets INNER JOIN users ON users.user_id = tweets.author WHERE tweets.ref_tweet IS NULL ORDER BY tweets.created_on DESC LIMIT 10";
 			if ($result = mysqli_query($link, $sql)) {
 				if (mysqli_num_rows($result) > 0) {
 					while ($row = mysqli_fetch_array($result)) {
-						echo "<div class=\"tweet-container\">";
-						echo "<p class=\"tweet-body\">".$row["body"]."</p>";
-						echo "<div class=\"tweet-info\">";
-						echo "by <a href=\"./search?user=".$row["username"]."\" class=\"tweet-user\">".$row["username"]."</a> at<span class=\"tweet-time\">".$row["created_on"]."</span>";
-						echo "</div></div>";
+						echo '<div id="tweet-'.$row["tweet_id"].'" class="tweet-container">';
+						echo '<p class="tweet-body">'.$row["body"].'</p>';
+						echo '<div class="tweet-info">';
+						echo '<a href="./search.php?user='.$row["username"].'" class="tweet-user">'.$row["username"].'</a><span style="color:indigo;">tweeted</span> at<span class="tweet-time">'.$row["created_on"].'</span>';
+						echo '</div></div>';
 					}
 				} else {
 					echo "No tweets found.";
