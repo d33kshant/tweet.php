@@ -1,9 +1,15 @@
+:root {
+	color-scheme: dark;
+	--border-color: #333;
+	--title-color: white;
+}
+
 .nav-container {
 	position: sticky;
 	top: 0;
-	border-bottom: 1px solid lightgray;
+	border-bottom: 1px solid var(--border-color);
 	padding: 8px;
-	background: rgba(255, 255, 255, .7);
+	background: rgba(0, 0, 0, .3);
 	backdrop-filter: blur(4px);
 }
 
@@ -13,24 +19,29 @@
 	font-size: large;
 	font-weight: bold;
 	text-decoration: none;
-	color: black;
+	color: var(--title-color);
 }
 
 .tweets-list {
 	width: fit-content;
-	border-left: 1px solid lightgray;
-	border-right: 1px solid lightgray;
+	border-left: 1px solid var(--border-color);
+	border-right: 1px solid var(--border-color);
 	margin: 0 auto;
 	min-height: 100vh;
 }
 
-.tweet-container {
-	border-bottom: 1px solid lightgray;
-	padding: 8px;
+.tweet-container, .tweet-container-og {
+	border-bottom: 1px solid var(--border-color);
+	padding: 8px 16px;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 4px;
 	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.tweet-container-og {
+	cursor: default;
 }
 
 .retweet-container {
@@ -39,9 +50,16 @@
 	align-items: start;
 }
 
+.retweet-container .tweet-body {
+	padding-left: 16px;
+	box-sizing: border-box;
+	border-left: 1px solid var(--border-color);
+}
+
 .tweet-body {
 	max-width: 540px;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 .tweet-info {
@@ -51,6 +69,10 @@
 	gap: 8px;
 	padding: 0;
 }
+
+/* .tweet-time {
+	color: palegreen;
+} */
 
 .tweet-user {
 	text-decoration: none;
@@ -63,4 +85,7 @@
 
 .empty-tweet-banner {
 	padding: 8px;
+	width: 100%;
+	text-align: center;
+	color: gray;
 }
