@@ -5,7 +5,7 @@ for (let i = 0; i < times.length; i++) {
 	item.innerText = (new Date(item.innerText)).toDateString()
 }
 
-const tweets = document.getElementsByClassName("tweet-container")
+const tweets = document.querySelectorAll(".tweet-container .tweet-body")
 for (let i = 0; i < tweets.length; i++) {
 	const item = tweets[i]
 
