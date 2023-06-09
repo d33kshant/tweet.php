@@ -14,6 +14,12 @@
 		<nav class="nav-container">
 			<a href="./" class="nav-title">Tweets</a>
 		</nav>
+		<div class="tweet-box">
+			<form class="tweet-form" action="tweet.php" method="post">
+				<textarea name="body" id="textarea" cols="30" rows="5" required></textarea>
+				<button type="submit">Tweet</button>
+			</form>
+		</div>
 		<?php 
 			require_once "config.php";
 
@@ -21,10 +27,10 @@
 			if ($result = mysqli_query($link, $sql)) {
 				if (mysqli_num_rows($result) > 0) {
 					while ($row = mysqli_fetch_array($result)) {
-						echo '<div id="tweet-'.$row["tweet_id"].'" class="tweet-container">';
+						echo '<div class="tweet-container">';
 						echo '<div class="tweet-info">';
 						echo '<a href="./search.php?user='.$row["username"].'" class="tweet-user">'.$row["username"].'</a>tweeted at<span class="tweet-time">'.$row["created_on"].'</span></div>';
-						echo '<p class="tweet-body">'.$row["body"].'</p>';
+						echo '<p id="tweet-'.$row["tweet_id"].'" class="tweet-body">'.$row["body"].'</p>';
 						echo '<div>';
 						echo '<a href="./like.php?tweet_id='.$row["tweet_id"].'">'.$row['like_count'].' Likes </a>';
 						echo '</div>';
