@@ -1,0 +1,111 @@
+:root {
+	color-scheme: dark;
+	--border-color: #333;
+	--title-color: white;
+}
+
+.nav-container {
+	position: sticky;
+	top: 0;
+	border-bottom: 1px solid var(--border-color);
+	padding: 8px;
+	background: rgba(0, 0, 0, .3);
+	backdrop-filter: blur(4px);
+}
+
+.nav-title {
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: large;
+	font-weight: bold;
+	text-decoration: none;
+	color: var(--title-color);
+}
+
+.tweets-list {
+	width: fit-content;
+	border-left: 1px solid var(--border-color);
+	border-right: 1px solid var(--border-color);
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+.tweet-container, .tweet-container-og {
+	border-bottom: 1px solid var(--border-color);
+	padding: 8px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	box-sizing: border-box;
+}
+
+.tweet-container a, .tweet-container-og a {
+	text-decoration: none;
+	color: cornflowerblue;
+}
+
+.tweet-body {
+	cursor: pointer;
+}
+
+.retweet-container {
+	display: flex;
+	gap: 8px;
+	align-items: start;
+}
+
+.retweet-container .tweet-body {
+	padding-left: 16px;
+	box-sizing: border-box;
+	border-left: 1px solid var(--border-color);
+}
+
+.tweet-body {
+	max-width: 540px;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.tweet-info {
+	color: gray;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+}
+
+/* .tweet-time {
+	color: palegreen;
+} */
+
+.tweet-user {
+	text-decoration: none;
+	/* color: currentColor; */
+}
+
+.tweet-user:hover {
+	text-decoration: underline;
+}
+
+.empty-tweet-banner {
+	padding: 8px;
+	width: 100%;
+	text-align: center;
+	color: gray;
+}
+
+.tweet-box {
+	padding: 8px;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.tweet-form {
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	justify-content: start;
+}
+
+.tweet-form textarea {
+	resize: none;
+}
