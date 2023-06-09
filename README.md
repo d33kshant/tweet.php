@@ -5,8 +5,8 @@ A twitter like micro blogging website made with php.
 - Authentication
 - Micro blogging
 - Replying
-- Like/Dislike and more.
-- Twitter inspired design
+- Like/Dislike
+- Twitter inspired design and more.
 
 # Screenshot
 ![screeshot](screenshot.png)
